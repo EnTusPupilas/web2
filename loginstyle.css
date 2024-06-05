@@ -1,0 +1,121 @@
+body {
+    background: linear-gradient(to bottom, #268cb2, #697bc3); 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    margin-top: 5%;
+    color: #fff;
+}
+
+.text-center.p {
+    color: #fff;
+    padding: 60px 0 80px 0;
+}
+
+.p1 {
+    color: #fff;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.paragraph {
+    color: #fff;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.iconos {
+    float: left;
+    width: 25%;
+    padding-top: 5px;
+    font-size: 40px;
+    text-align: right;
+    color: #999;
+    line-height: 100px;
+}
+
+.container-fluid {
+    margin-top: 2%;
+}
+
+.middle-border {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    border-right: 1px solid #fff;
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.btnForm {
+    background: #19b9e7;
+    border-color: #1b9fe2;
+    color: #fff;
+    width: 100%;
+}
+
+.btnForm:hover{
+    background: #19b9e7;
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+}
+
+.card-body {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.vr {
+    margin-left: 40%;
+    margin-right: 10%;
+}
+
+.card {
+    margin-top: 70px;
+}
+
+.row {
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.card-title {
+    margin-top: 5%;
+}
+
+.card-top-left {
+    float: left;
+    width: 75%;
+    padding-top: 25px;
+}
+
+.btn_facebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.btn_facebook:hover {
+    background-color: #fff;
+    color: #3b5998;
+}
+
+.btn_twitter {
+    background-color: #1da1f2;
+    color: #fff;
+}
+
+.btn_twitter:hover {
+    background-color: #fff;
+    color: #1da1f2;
+}
+
+.btn_google {
+    background-color: #ea4335;
+    color: #fff;
+}
+
+.btn_google:hover {
+    background-color: #fff;
+    color: #ea4335;
+}
