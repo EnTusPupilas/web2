@@ -1,3 +1,22 @@
+// Función para obtener el nombre del usuario desde el servidor
+function fetchUserName() {
+    fetch('options.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('name').innerHTML = data.name;
+            } else {
+                console.error('Error al obtener el nombre del usuario:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+        });
+}
+
+// Llamar a la función para obtener el nombre del usuario al cargar la página
+window.onload = fetchUserName;
+
 // Función para dibujar un número en un lienzo (canvas).
 function drawNumber(number) {
     var canvas = document.createElement('canvas'); // Crear un nuevo elemento canvas
@@ -80,11 +99,11 @@ function validateChoice(userChoice) {
                     var imageUrlJpg = userChoice + '.jpg';
                     var imageUrlPng = userChoice + '.png';
 
-                    imageExists(imageUrlJpg, function(exists) {
+                    imageExists(imageUrlJpg, function (exists) {
                         if (exists) {
                             setBackgroundImage(imageUrlJpg, response, userChoice);
                         } else {
-                            imageExists(imageUrlPng, function(exists) {
+                            imageExists(imageUrlPng, function (exists) {
                                 if (exists) {
                                     setBackgroundImage(imageUrlPng, response, userChoice);
                                 } else {
@@ -137,6 +156,20 @@ function handleResponse(response) {
     }
 }
 
+// Ejemplo de uso de fetch para obtener el nombre del usuario
+fetch('options.php')
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            document.getElementById('name').innerHTML = data.name;
+        } else {
+            console.error('Error al obtener el nombre del usuario:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error);
+    });
+
 // Ejemplo de uso
 fetch('options.php', {
     method: 'POST',
@@ -147,6 +180,6 @@ fetch('options.php', {
         'code': 'ABC123' // Reemplaza con los datos correctos
     })
 })
-.then(response => response.text())
-.then(handleResponse)
-.catch(error => console.error('Error en la solicitud:', error));
+    .then(response => response.text())
+    .then(handleResponse)
+    .catch(error => console.error('Error en la solicitud:', error));
