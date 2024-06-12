@@ -65,6 +65,7 @@ $code = $_POST['code'] ?? null;
 if ($code) {
     // Comprobar si el usuario ya tiene un turno asignado
     $query = "SELECT * FROM appointment WHERE id_user = $id_user";
+    //$query = "SELECT released_user FROM users WHERE id_user = $id_user";
     $result = pg_query($dbconn, $query);
 
     if (pg_num_rows($result) > 0) {

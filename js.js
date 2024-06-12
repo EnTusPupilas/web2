@@ -156,7 +156,7 @@ function handleResponse(response) {
     }
 }
 
-// Ejemplo de uso de fetch para obtener el nombre del usuario
+// Uso de fetch para obtener el nombre del usuario
 fetch('options.php')
     .then(response => response.json())
     .then(data => {
