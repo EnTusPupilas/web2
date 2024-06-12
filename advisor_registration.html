@@ -23,7 +23,7 @@
     <div class="text-center">
         <h1><img src="logo2.png" title="Bancolombia"></h1>
         <div class="paragraph">
-            <p>Registra tus datos a continuación.</p>
+            <p>Registra los datos de la nueva persona asesora a continuación.</p>
         </div>
     </div>
 
@@ -34,8 +34,8 @@
                     <div class="card-body">
                         <div class="card-top">
                             <div class="card-top-left">
-                                <h4 class="card-title">Regístrate ahora:</h4>
-                                <p class="card-text mb-3">Completa el formulario para acceder:</p>
+                                <h4 class="card-title">Registro:</h4>
+                                <p class="card-text mb-3">Completa el formulario:</p>
                             </div>
                             <div class="iconos">
                                 <i class="bi bi-pencil-fill"></i>
@@ -44,7 +44,7 @@
                         <form action="registration.php" method="POST">
                             <div class="mb-3">
                                 <input type="number" class="form-control" placeholder="Número de identificación"
-                                    id="id_user" name="id_user" min="1" required>
+                                    id="id_advisor_id" name="id_advisor" min="1" required>
                             </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control" placeholder="Nombres" id="name" name="name"
@@ -55,8 +55,8 @@
                                     name="lastname" required>
                             </div>
                             <div class="mb-3">
-                                <input type="tel" class="form-control" placeholder="Teléfono" id="phone_number"
-                                    name="phone_number">
+                                <input type="password" class="form-control" placeholder="Contraseña" id="password"
+                                    name="password" required>
                             </div>
                             <div class="d-grid gap-2 d-md-block text-center">
                                 <button class="btn btn-lg btn-block btnForm" type="submit" id="btn_regUser"
