@@ -47,9 +47,9 @@ if (!$id_user) {
     exit;
 }
 
-// Obtener el nombre del usuario
-$query = "SELECT name FROM users WHERE id_user = $id_user";
-$result = pg_query($dbconn, $query);
+// Obtener el nombre del usuario de manera segura
+$query = "SELECT name FROM users WHERE id_user = $1";
+$result = pg_query_params($dbconn, $query, array($id_user));
 $user_data = pg_fetch_assoc($result);
 
 if (!$user_data) {
@@ -64,38 +64,49 @@ $code = $_POST['code'] ?? null;
 
 if ($code) {
     // Comprobar si el usuario ya tiene un turno asignado
-    $query = "SELECT * FROM appointment WHERE id_user = $id_user";
-    //$query = "SELECT released_user FROM users WHERE id_user = $id_user";
-    $result = pg_query($dbconn, $query);
+    $query = "SELECT released_user FROM users WHERE id_user = $1";
+    $result = pg_query_params($dbconn, $query, array($id_user));
+    $row = pg_fetch_assoc($result);
 
-    if (pg_num_rows($result) > 0) {
-        echo json_encode(['status' => 'exists', 'message' => 'Ya tienes un turno asignado.']);
-        exit;
-    }
+    if ($row) {
+        if ($row['released_user'] === 't') { // En PostgreSQL, 't' representa true
+            // Obtener el último turno asignado para el tipo de turno especificado por el código
+            $query = "SELECT appointment_description FROM appointment WHERE code = $1 ORDER BY appointment_id DESC LIMIT 1";
+            $result = pg_query_params($dbconn, $query, array($code));
+            $last_turn = pg_fetch_assoc($result);
 
-    // Obtener el último turno asignado para el tipo de turno especificado por el código
-    $query = "SELECT appointment_description FROM appointment WHERE code = '$code' ORDER BY appointment_id DESC LIMIT 1";
-    $result = pg_query($dbconn, $query);
-    $last_turn = pg_fetch_assoc($result);
+            $new_turn_number = 1;
+            if ($last_turn) {
+                // Si ya existe un turno previo, se incrementa el número del turno
+                $new_turn_number = intval(substr($last_turn['appointment_description'], 1)) + 1;
+            }
 
-    $new_turn_number = 1;
-    if ($last_turn) {
-        // Si ya existe un turno previo, se incrementa el número del turno
-        $new_turn_number = intval(substr($last_turn['appointment_description'], 1)) + 1;
-    }
+            // Crear la descripción del nuevo turno
+            $appointment_description = $code . $new_turn_number;
 
-    // Crear la descripción del nuevo turno
-    $appointment_description = $code . $new_turn_number;
+            // Asignar el nuevo turno en la base de datos
+            $query = "INSERT INTO appointment (id_user, code, appointment_description, date, time) 
+                      VALUES ($1, $2, $3, CURRENT_DATE, CURRENT_TIME)";
+            $result = pg_query_params($dbconn, $query, array($id_user, $code, $appointment_description));
 
-    // Asignar el nuevo turno en la base de datos
-    $query = "INSERT INTO appointment (id_user, code, appointment_description, date, time) 
-              VALUES ($id_user, '$code', '$appointment_description', CURRENT_DATE, CURRENT_TIME)";
-    $result = pg_query($dbconn, $query);
+            if ($result) {
+                // Actualizar el campo released_user a false
+                $query = "UPDATE users SET released_user = 'f' WHERE id_user = $1";
+                $update_result = pg_query_params($dbconn, $query, array($id_user));
 
-    if ($result) {
-        echo json_encode(['status' => 'success', 'message' => $appointment_description, 'name' => $user_name]);
+                if ($update_result) {
+                    echo json_encode(['status' => 'success', 'message' => $appointment_description, 'name' => $user_name]);
+                } else {
+                    echo json_encode(['status' => 'error', 'message' => 'Error al actualizar el estado del usuario.']);
+                }
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Error al asignar el turno.']);
+            }
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'El usuario no ha terminado su turno.']);
+        }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Error al asignar el turno.']);
+        echo json_encode(['status' => 'error', 'message' => 'No se encontró el usuario.']);
     }
 } else {
     // Si no se proporciona un código, solo retornar el nombre del usuario
