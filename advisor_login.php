@@ -65,6 +65,7 @@ unset($_SESSION['error_message']);
                 </div>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

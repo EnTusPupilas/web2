@@ -133,7 +133,7 @@ function setBackgroundImage(imageUrl, response, userChoice) {
     document.getElementById('btn_user').style.backgroundPosition = 'center center'; // Configurar la posición de la imagen de fondo
     document.getElementById('lbl_user').innerHTML = labels[userChoice]; // Actualizar la etiqueta del usuario
 
-    document.getElementById('btn_cpu').style.backgroundImage = drawNumber(response.message); // Establecer la imagen de fondo del botón de la CPU
+    document.getElementById('btn_cpu').style.backgroundImage = drawNumber(response.message); // Establecer la imagen de fondo del botón turno
     document.getElementById('btn_cpu').style.backgroundSize = 'cover'; // Configurar el tamaño de la imagen de fondo
     document.getElementById('btn_cpu').style.backgroundPosition = 'center center'; // Configurar la posición de la imagen de fondo
     document.getElementById('lbl_cpu').innerHTML = response.message; // Actualizar la etiqueta de la CPU

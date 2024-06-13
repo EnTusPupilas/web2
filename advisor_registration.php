@@ -46,4 +46,7 @@ if ($result) {
     exit();
 }
 
+// Cerrar la conexión
+pg_close($dbconn); 
+
 ?>
