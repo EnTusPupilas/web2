@@ -67,7 +67,13 @@ if (pg_num_rows($result) > 0) {
             'appointment_description' => $user['appointment_description'] 
         ]);
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'No hay citas pendientes para este asesor']);
+        echo json_encode([
+            'status' => 'success',
+            'advisor_name' => $advisor['advisor_name'],
+            'name' => '',
+            'lastname' => '',
+            'appointment_description' => ''
+        ]); 
     }
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Asesor no encontrado.']);

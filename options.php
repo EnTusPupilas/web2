@@ -103,7 +103,7 @@ if ($code) {
                 echo json_encode(['status' => 'error', 'message' => 'Error al asignar el turno.']);
             }
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'El usuario no ha terminado su turno.']);
+            echo json_encode(['status' => 'error', 'message' => 'El usuario aún no ha terminado su turno.']);
         }
     } else {
         echo json_encode(['status' => 'error', 'message' => 'No se encontró el usuario.']);

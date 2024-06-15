@@ -49,3 +49,27 @@ function setBackgroundImage(appointmentDescription) {
     button.style.backgroundSize = 'cover'; // Configurar el tamaño de la imagen de fondo
     button.style.backgroundPosition = 'center center'; // Configurar la posición de la imagen de fondo
 }
+
+function finalValidation() {
+    fetch('final_validation.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            // Puedes pasar datos adicionales si es necesario
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            // Actualizar la interfaz de usuario si es necesario
+            console.log('Validación finalizada con éxito');
+        } else {
+            console.error('Error en la validación final:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error);
+    });
+}
