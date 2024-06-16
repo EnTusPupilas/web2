@@ -32,7 +32,7 @@
                     <p>¡Atención! Si tienes el turno llamado a continuación, dirígete al módulo correspondiente.</p>
                 </div>
             </div>
-            <!-- Botones de opciones -->
+            <!-- Panel de opciones -->
             <div class="panel-body">
                 <br>
                 <br>
@@ -62,13 +62,57 @@
                                 <h5 class="card-title mb-0">Quien te colabora:</h5>
                             </div>
                             <div class="row align-items-center mb-2 d-flex">
-                                <h2><span id="assesor_name">Juan <span id="assesor_lastname"></span>Contreras</span>
+                                <h2><span id="advisor_name">Juan</span> <span id="advisor_lastname">Contreras</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Botones de opciones -->
+            <div class="panel-body">
+                <br>
+                <br>
+                <div class="button-grid">
+                    <div class="button-container">
+                        <h1 class="title">Turno previo</h1>
+                        <button id="btn_procedures_turn_prev" name="btn_procedures_turn_prev" type="button"
+                            class="btn btn-primary btn-circle btn-xl" disabled>
+                        </button>
+                        <label class="lbl_procedures_turn_prev" id="lbl_procedures_turn_prev"
+                            name="lbl_procedures_turn_prev"></label>
+                    </div>
+                    <div class="card l-bg-cherry">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Módulo</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <h1><span id="module_prev">5</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card l-bg-blue-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-user-alt"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Quien te colabora:</h5>
+                            </div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <h2><span id="advisor_name_prev">Juan></span> <span
+                                        id="advisor_lastname_prev">Contreras</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Resultado -->
+        <br>
+        <br>
+        <div class="result" id="result"></div>
+        <br>
+        <br>
         <!-- Pie de página -->
         <div class="col-lg-6 col-md-8 mx-auto">
             <br />
@@ -78,7 +122,8 @@
         </div>
         </div>
     </section>
-    <script src="js.js"></script>
+    <script src="turn.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
