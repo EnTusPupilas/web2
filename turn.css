@@ -1,14 +1,20 @@
 body {
-    background: linear-gradient(to top right, #65410f, #CA7F16);
-    /* Fondo degradado con colores */
+    background: #d1d3d4;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #fff;
+}
+
+.logo {
+    width: 500px;
 }
 
 .title {
     font-weight: bold;
     text-shadow: 1px 1px 2px #000;
+}
+
+.module {
+    color: rgb(42, 39, 39);
 }
 
 .btn-circle.btn-xl {
@@ -61,57 +67,37 @@ body {
     animation: bounce 2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
 }
 
+.signature:hover+.polar {
+    animation: rotate 0.5s linear infinite, roll 7s linear infinite;
+
+}
+
 .polar {
-    transition: transform 0.5s;
+    position: absolute;
+    font-size: 1.5em;
 }
 
 .polar:hover {
-    animation: bounce 2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+    animation: rotate 0.5s linear infinite, roll 7s linear infinite;
 }
 
-@keyframes bounce {
+@keyframes rotate {
     0% {
-        transform: scale(2) translateY(0) translateX(0);
-    }
-
-    10% {
-        transform: scale(2) translateY(-30px) translateX(0);
-    }
-
-    20% {
-        transform: scale(2) translateY(0) translateX(0);
-    }
-
-    30% {
-        transform: scale(2) translateY(-15px) translateX(10px);
-    }
-
-    40% {
-        transform: scale(2) translateY(0) translateX(10px);
-    }
-
-    50% {
-        transform: scale(2) translateY(-10px) translateX(16px);
-    }
-
-    60% {
-        transform: scale(2) translateY(0) translateX(16px);
-    }
-
-    70% {
-        transform: rotate(0deg) translateX(16px);
-    }
-
-    80% {
-        transform: rotate(-180deg) translateX(1px);
-    }
-
-    90% {
-        transform: rotate(-360deg) translateX(6px);
+        transform: rotate(0deg);
     }
 
     100% {
-        transform: rotate(-540deg) translateX(2px);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes roll {
+    0% {
+        left: -7em;
+    }
+
+    100% {
+        left: calc(100% + 7em);
     }
 }
 
@@ -126,16 +112,23 @@ body {
 }
 
 .l-bg-cherry {
-    background: linear-gradient(to right, #493240, #f09) !important;
+    background: linear-gradient(to right,
+            /*#493240,*/
+            #f09, #f5b6cd) !important;
     color: #fff;
 }
 
 .l-bg-blue-dark {
-    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    background: linear-gradient(to right,
+            /*#373b44,*/
+            #4286f4, #59CBE9) !important;
     color: #fff;
 }
 
-.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+.card .card-statistic-3 .card-icon-large .fas,
+.card .card-statistic-3 .card-icon-large .far,
+.card .card-statistic-3 .card-icon-large .fab,
+.card .card-statistic-3 .card-icon-large .fal {
     font-size: 110px;
 }
 
@@ -168,4 +161,256 @@ body {
 .l-bg-cyan {
     background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
     color: #fff;
+}
+
+#footer {
+    background-color: white;
+    padding: 0;
+}
+
+
+/*#footer .deletePadd {
+    padding-left: 0;
+    padding-right: 0;
+}*/
+
+#footer .deletePaddLef {
+    padding-left: 0;
+}
+
+
+#footer .footer_bg_dark {
+    padding-top: 56px;
+    padding-bottom: 74px;
+    background-color: #2C2A29;
+    color: white;
+}
+
+#footer .footer_bg_light {
+    background-color: white;
+}
+
+#footer span.bc-icon {
+    font-size: 24px;
+    font-family: 'Font Icon Regular';
+}
+
+#footer .acor-header {
+    padding-bottom: 26px;
+}
+
+#footer .acor-header .acor-header-right {
+    display: none;
+}
+
+#footer .contact-us {
+    color: white;
+}
+
+#footer ul {
+    margin: 0;
+}
+
+#footer ul li {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.17px;
+    padding: 10px 0;
+}
+
+#footer ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.17px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#footer em {
+    width: 24px;
+    height: 24px;
+    color: white;
+    font-style: normal;
+    font-size: 24px;
+    font-family: 'Font Icon Regular';
+}
+
+#footer .especial-flex {
+    padding: 46px 0 0 0;
+}
+
+#footer .description {
+    border-left: 1px solid white;
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+#footer .description p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.17px;
+}
+
+#footer .description .vigilado {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer .description .vigilado p {
+    font-size: 8px;
+    display: inline;
+}
+
+#footer .description .logo-vigilado {
+    max-width: 180px;
+}
+
+#footer .social_media {
+    display: flex;
+    justify-content: initial;
+    margin: 40px 0 0 0;
+}
+
+#footer .social_media .wa-icon {
+    width: 22px;
+    border: 2px solid white;
+    border-radius: 1000px;
+    background-color: white;
+    color: black;
+    font-size: 19px;
+    height: 24px;
+
+}
+
+#footer i.icon-bco.icon-whatsapp {
+    margin-top: -4px;
+    font-size: 27px;
+    color: #fff;
+}
+
+#footer .social_media ul {
+    max-width: 250px;
+    display: flex;
+}
+
+#footer .social_media ul li {
+    padding: 0;
+    padding-right: 20px;
+}
+
+#footer .footer_bg_light .footer-logo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+#footer .footer_bg_light .footer-logo .bc-icon {
+    width: 200px;
+    height: 55px;
+    font-size: 55px;
+    margin: 0;
+}
+
+#footer .footer_bg_light .footer-logo .footer-copyright {
+    margin: 0;
+}
+
+@media screen and (max-width: 993px) {
+
+    #footer .row {
+        display: contents;
+    }
+
+    #footer .footer_bg_dark {
+        padding-top: 16px;
+        padding-bottom: 0;
+    }
+
+    #footer .acors-group {
+        border-top: 1px solid white;
+    }
+
+    #footer .acor-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #footer .acor-header .acor-header-right {
+        display: block;
+        cursor: pointer;
+    }
+
+    #footer .acor .acor-content {
+        padding-left: 35px;
+        padding-bottom: 20px;
+    }
+
+    #footer .show-content {
+        display: block;
+    }
+
+    #footer .hidden-content {
+        display: none;
+    }
+
+    #footer .hidden-content-arrow {
+        rotate: 0deg;
+        transition: rotate 0.2s;
+    }
+
+    #footer .show-content-arrow {
+        rotate: 180deg;
+        transition: rotate 0.2s;
+    }
+
+    #footer .especial-flex {
+        padding: 0;
+        padding-bottom: 10px;
+    }
+
+    #footer .description {
+        border: none;
+        padding-top: 0;
+        padding-left: 0;
+    }
+
+    #footer .description .logo-vigilado {
+        max-width: 150px;
+    }
+
+    #footer .social_media {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0 30px 0;
+    }
+
+    #footer .footer_bg_light .footer-logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+    }
+
+    #footer .footer_bg_light .footer-logo .bc-icon {
+        margin: 0 0 20px 0;
+    }
+
+    #footer .footer_bg_light .footer-logo .footer-copyright {
+        margin: 0 0 40px 0;
+    }
 }

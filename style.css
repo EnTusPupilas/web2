@@ -1,9 +1,52 @@
 body {
-    background: linear-gradient(to top right, #65410f, #CA7F16);
-    /* Fondo degradado con colores */
+    background-image: url('background.jpg');
+    background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    height: 100vh;
     color: #fff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    /* Esto asegurará que el fondo no cubra el contenido */
+}
+
+.wallpaper {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.wallpaper:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to right, #f00, #f00, #0f0, #0ff, #ff0, #0ff);
+    mix-blend-mode: color;
+    pointer-events: none;
+}
+
+.smoke {
+    object-fit: cover;
+    width: 100%;
+    height: 50%;
+}
+
+.logo {
+    width: 500px;
 }
 
 .title {
@@ -125,27 +168,6 @@ body {
     padding: 20px;
 }
 
-.wins {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Divide el contenedor en dos columnas de igual tamaño */
-    gap: 10px;
-}
-
-.wins_border {
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-}
-
-.p_images {
-    font-size: 10px;
-}
-
-.p_images a {
-    color: #fff;
-}
-
 .signature:hover+.polar {
     transform: scale(1.5) rotate(360deg);
 }
@@ -156,4 +178,34 @@ body {
 
 .polar:hover {
     transform: scale(1.5) rotate(360deg);
+}
+
+.turn-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.turn-container .turn {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin: 0 15px 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.turn_container .turn:hover .text_turn {
+    background: #19b9e7;
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+    font-size: 2em;
+    transition: font-size 0.3s ease; /* Añade una transición para un cambio suave */
+}
+
+#turn_emoji{
+    font-size: 70px;
 }

@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #268cb2, #697bc3); 
+    background: linear-gradient(to bottom, #268cb2, #697bc3);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -54,7 +54,7 @@ h1 {
     width: 100%;
 }
 
-.btnForm:hover{
+.btnForm:hover {
     background: #19b9e7;
     outline: 0;
     opacity: 0.6;
@@ -118,4 +118,33 @@ h1 {
 .btn_google:hover {
     background-color: #fff;
     color: #ea4335;
+}
+
+.advisor-login-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.advisor-login-container .advisor-login {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin: 0 15px 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.advisor-login-container .advisor-login:hover {
+    background-color: #1c8ab6;
+    background: #19b9e7;
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+}
+
+#man_technologist{
+    font-size: 70px;
 }
